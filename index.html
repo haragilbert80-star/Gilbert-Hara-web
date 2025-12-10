@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProTask • Premium Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1><i class="fas fa-tasks"></i> ProTask</h1>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Add Task Card -->
+      <div class="card add-task-card glass">
+        <h2>Add New Task</h2>
+        <form id="task-form">
+          <div class="input-field">
+            <input type="text" id="task-input" placeholder="What's on your mind today?" required />
+            <i class="fas fa-pencil-alt input-icon"></i>
+          </div>
+
+          <div class="input-grid">
+            <div class="select-wrapper">
+              <select id="task-category">
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="School">School</option>
+                <option value="Health">Health</option>
+                <option value="Other">Other</option>
+              </select>
+              <i class="fas fa-tag"></i>
+            </div>
+
+            <div class="select-wrapper">
+              <select id="task-priority">
+                <option value="low">Low Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="high">High Priority</option>
+              </select>
+              <i class="fas fa-flag"></i>
+            </div>
+
+            <div class="input-field">
+              <input type="datetime-local" id="task-due-date" />
+              <i class="fas fa-calendar-alt input-icon"></i>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-plus"></i>
+            <span>Add Task</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Stats & Filters -->
+      <div class="controls-bar glass">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <i class="fas fa-list-ul"></i>
+            <div>
+              <strong id="total-count">0</strong>
+              <span>Total Tasks</span>
+            </div>
+          </div>
+          <div class="stat-card completed">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <strong id="completed-count">0</strong>
+              <span>Completed</span>
+            </div>
+          </div>
+          <div class="stat-card pending">
+            <i class="fas fa-clock"></i>
+            <div>
+              <strong id="pending-count">0</strong>
+              <span>Pending</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="filters">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search tasks..." />
+          </div>
+          <select id="filter-category" class="filter-select">
+            <option value="all">All Categories</option>
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="School">School</option>
+            <option value="Health">Health</option>
+            <option value="Other">Other</option>
+          </select>
+          <select id="filter-status" class="filter-select">
+            <option value="all">All Status</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Task List -->
+      <div class="card task-list-card glass">
+        <div class="section-header">
+          <h2>Your Tasks</h2>
+          <span class="task-count-badge" id="visible-count">0 tasks</span>
+        </div>
+        <ul id="task-list"></ul>
+        <p id="empty-message" class="empty-state">
+          <i class="fas fa-inbox"></i>
+          <span>No tasks found. Create your first one!</span>
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 ProTask • Crafted with <i class="fas fa-heart pulse"></i> for productivity</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
